@@ -24,12 +24,12 @@
     <!-- ########## Disk ########## -->
     <disk type='file' device='disk'>
       <driver name='qemu' type='qcow2' cache='writeback'/>
-      <source file='/home/vagrant/share/sonic-setup/sonic-images/sonic-vs3.img'/>
+      <source file='/home/shu1r0/sonic_kvm_demo/clos-node4/leaf2/sonic-vs.img'/>
       <target bus='virtio' dev='vda'/>
     </disk>
     <!-- ########## Telnet ########## -->
     <serial type='tcp'>
-      <source host='127.0.0.1' mode='bind' service='7011'/>
+      <source host='127.0.0.1' mode='bind' service='7004'/>
       <target port='0'/>
       <protocol type='telnet'/>
     </serial>

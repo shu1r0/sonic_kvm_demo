@@ -1,6 +1,6 @@
 <domain type='kvm' xmlns:qemu='http://libvirt.org/schemas/domain/qemu/1.0'>
   <!-- ########## VM Config ########## -->
-  <name>leaf1</name>
+  <name>sonic-mgmt</name>
   <memory unit='KiB'>4096000</memory>
   <currentMemory unit='KiB'>4096000</currentMemory>
   <vcpu placement='static'>2</vcpu>
@@ -24,12 +24,12 @@
     <!-- ########## Disk ########## -->
     <disk type='file' device='disk'>
       <driver name='qemu' type='qcow2' cache='writeback'/>
-      <source file='/home/shu1r0/sonic_kvm_demo/clos-node4/leaf1/sonic-vs.img'/>
+      <source file='/home/shu1r0/sonic_kvm_demo/clos-node4/mgmt_node/focal.img'/>
       <target bus='virtio' dev='vda'/>
     </disk>
     <!-- ########## Telnet ########## -->
     <serial type='tcp'>
-      <source host='127.0.0.1' mode='bind' service='7003'/>
+      <source host='127.0.0.1' mode='bind' service='7111'/>
       <target port='0'/>
       <protocol type='telnet'/>
     </serial>
@@ -38,26 +38,6 @@
       <source bridge='br_mgmt'/>
       <model type="virtio"/>
     </interface>
-    <!-- Ethernet0 (eth1) -->
-    <interface type='bridge'>
-      <source bridge="br_s1l1"/>
-      <model type="virtio"/>
-    </interface>
-    <!-- Ethernet4 (eth2) -->
-    <interface type='bridge'>
-      <source bridge="br_s2l1"/>
-      <model type="virtio"/>
-    </interface>
-    <!-- Ethernet8 (eth3) -->
-    <!-- <interface type='bridge'>
-      <source bridge="br_s1l1"/>
-      <model type="virtio"/>
-    </interface> -->
-    <!-- Ethernet12 (eth4) -->
-    <!-- <interface type='bridge'>
-      <source bridge="br_s1l1"/>
-      <model type="virtio"/>
-    </interface> -->
     
     <controller type='usb' index='0'/>
     <memballoon model='virtio'>
