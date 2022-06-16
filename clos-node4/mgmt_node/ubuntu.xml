@@ -35,10 +35,14 @@
     </serial>
     <!-- eth0 -->
     <interface type='bridge'>
+      <source bridge='virbr0'/>
+      <model type="virtio"/>
+    </interface>
+    <!-- eth0 -->
+    <interface type='bridge'>
       <source bridge='br_mgmt'/>
       <model type="virtio"/>
     </interface>
-    
     <controller type='usb' index='0'/>
     <memballoon model='virtio'>
       <alias name='balloon0'/>
