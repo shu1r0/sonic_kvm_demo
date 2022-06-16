@@ -1,0 +1,6 @@
+*.img
+*.qcow2
+
+*.py
+
+/clos-node16
