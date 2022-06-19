@@ -5,6 +5,7 @@ if [[ $(id -u) -ne 0 ]] ; then echo "Please run with sudo" ; exit 1 ; fi
 
 
 create() {
+  virsh create mgmt_node/ubuntu.xml
   virsh create leaf1/sonic.xml
   virsh create leaf2/sonic.xml
   virsh create spine1/sonic.xml
@@ -13,6 +14,7 @@ create() {
 
 
 delete() {
+  virsh destroy sonic-mgmt
   virsh destroy leaf1
   virsh destroy leaf2
   virsh destroy spine1

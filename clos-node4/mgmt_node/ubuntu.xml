@@ -34,8 +34,9 @@
       <protocol type='telnet'/>
     </serial>
     <!-- eth0 -->
-    <interface type='network'>
-      <source network='default'/>
+    <interface type='bridge'>
+      <source bridge='virbr0'/>
+      <model type="virtio"/>
     </interface>
     <!-- eth0 -->
     <interface type='bridge'>
