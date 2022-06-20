@@ -316,4 +316,4 @@ sudo cat <<'EOF' | sudo tee /etc/sonic/config_db.json
 }
 EOF
 
-config reload -f
+sudo config reload -f
