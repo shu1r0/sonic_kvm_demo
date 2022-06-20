@@ -127,5 +127,5 @@ go run gnmi_capabilities.go -target_addr 10.30.30.2:8080 -target_name sonic -not
 ```
 
 ```
-go run gnmi_capabilities.go -target_addr 10.30.30.2:8080 -target_name sonic -notls
+go run gnmi_get.go  -xpath_target openconfig -xpath /openconfig-interfaces:interfaces/interface[name=Ethernet0] -target_addr 10.30.30.2:8080 -insecure true  
 ```
