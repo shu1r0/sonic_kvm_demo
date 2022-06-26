@@ -11,6 +11,29 @@ sudo cat <<'EOF' | sudo tee /etc/sonic/config_db.json
           "type": "LeafRouter"
       }
   },
+  "TELEMETRY_CLIENT": {
+    "Global": {
+        "encoding": "JSON_IETF",
+        "retry_interval": "30",
+        "src_ip": "10.30.30.3",
+        "unidirectional": "true"
+    },
+    "DestinationGroup_HS": {
+        "dst_addr": "10.30.30.1:8081"
+    },
+    "Subscription_HS_RDMA": {
+        "dst_group": "HS",
+        "path_target": "COUNTERS_DB",
+        "paths": "COUNTERS/Ethernet*,COUNTERS_PORT_NAME_MAP",
+        "report_interval": "5000",
+        "report_type": "periodic"
+    }
+  },
+  "MGMT_INTERFACE": {
+    "eth0|10.30.30.3/24": {
+        "gwaddr": "10.30.30.1"
+    }
+  }, 
   "PORT": {
       "Ethernet0": {
           "lanes": "25,26,27,28",

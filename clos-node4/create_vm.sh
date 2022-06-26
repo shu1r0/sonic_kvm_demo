@@ -1,9 +1,5 @@
 #!/bin/bash
 
-
-if [[ $(id -u) -ne 0 ]] ; then echo "Please run with sudo" ; exit 1 ; fi
-
-
 create() {
   virsh create mgmt_node/ubuntu.xml
   virsh create leaf1/sonic.xml

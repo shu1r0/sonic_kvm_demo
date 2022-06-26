@@ -3,7 +3,7 @@
 
 ## Management Node
 
-install ubuntu.
+download ubuntu img.
 ```bash
 $ wget "https://cloud-images.ubuntu.com/focal/current/focal-server-cloudimg-amd64.img"
 ```
@@ -14,8 +14,11 @@ $ wget "https://cloud-images.ubuntu.com/focal/current/focal-server-cloudimg-amd6
 
 ```
 conf t
+
+interface lo
+  ip address 10.10.10.1/32
 router bgp 65100
- bgp router-id 10.1.1.1
+ bgp router-id 10.10.10.1
  no bgp ebgp-requires-policy
  bgp bestpath as-path multipath-relax
  neighbor FABRIC peer-group
@@ -26,6 +29,7 @@ router bgp 65100
  address-family ipv4 unicast
   network 10.20.30.0/24
   network 10.20.31.0/24
+  network 10.10.10.1/32
  exit-address-family
 ```
 
@@ -33,8 +37,11 @@ router bgp 65100
 
 ```
 conf t
+
+interface lo
+  ip address 10.10.10.2/32
 router bgp 65100
- bgp router-id 10.2.2.2
+ bgp router-id 10.10.10.2
  no bgp ebgp-requires-policy
  bgp bestpath as-path multipath-relax
  neighbor FABRIC peer-group
@@ -45,6 +52,7 @@ router bgp 65100
  address-family ipv4 unicast
   network 10.20.33.0/24
   network 10.20.34.0/24
+  network 10.10.10.2/32
  exit-address-family
 ```
 
@@ -52,8 +60,11 @@ router bgp 65100
 
 ```
 conf t
+
+interface lo
+  ip address 10.10.10.3/32
 router bgp 65200
- bgp router-id 10.3.3.3
+ bgp router-id 10.10.10.3
  no bgp ebgp-requires-policy
  bgp bestpath as-path multipath-relax
  neighbor FABRIC peer-group
@@ -64,6 +75,7 @@ router bgp 65200
  address-family ipv4 unicast
   network 10.20.30.0/24
   network 10.20.33.0/24
+  network 10.10.10.3/32
  exit-address-family
 ```
 
@@ -71,8 +83,11 @@ router bgp 65200
 
 ```
 conf t
+
+interface lo
+  ip address 10.10.10.4/32
 router bgp 65201
- bgp router-id 10.4.4.4
+ bgp router-id 10.10.10.4
  no bgp ebgp-requires-policy
  bgp bestpath as-path multipath-relax
  neighbor FABRIC peer-group
@@ -83,6 +98,7 @@ router bgp 65201
  address-family ipv4 unicast
   network 10.20.31.0/24
   network 10.20.34.0/24
+  network 10.10.10.4/32
  exit-address-family
 ```
 
